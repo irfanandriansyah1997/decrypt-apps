@@ -17,3 +17,8 @@ export interface EncryptSignatureFnType {
 export interface DecryptSignatureFnType {
     (encryptedData: string, uuid: string): string;
 }
+
+export enum EncryptModulesTypes {
+    ENCRYPT = 'encrypt',
+    DECRYPT = 'decrypt'
+}

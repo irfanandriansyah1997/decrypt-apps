@@ -1,0 +1,15 @@
+.encrypt-modules {
+    align-items: flex-start;
+    background-color: var(--lightGray);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-12dp);
+    display: flex;
+    margin: 48px auto;
+    min-height: calc(100vh - 120px);
+    min-width: 1200px;
+    max-width: 1200px;
+    overflow: hidden;
+    position: relative;
+    width: 90%;
+    padding-left: 300px;
+}
