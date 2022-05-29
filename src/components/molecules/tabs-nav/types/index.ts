@@ -7,6 +7,7 @@ import type { Key, PropsWithChildren } from 'react';
  */
 export interface TabsNavProps {
     active?: Key;
+    onChooseItem(key: string): void;
 }
 
 /**

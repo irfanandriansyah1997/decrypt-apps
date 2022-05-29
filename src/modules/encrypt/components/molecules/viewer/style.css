@@ -1,0 +1,6 @@
+.m-viewer {
+    padding: 16px;
+    color: var(--text);
+    font-family: var(--font-code);
+    line-height: 24px;
+}

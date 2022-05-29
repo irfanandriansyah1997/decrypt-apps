@@ -1,0 +1,17 @@
+.a-button {
+    width: 100%;
+    padding: 8px;
+    border: 0;
+    background-color: var(--secondary);
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.a-button:hover {
+    box-shadow: var(--box-shadow-12dp);
+}
+
+.a-button--disabled {
+    background-color: var(--text);
+    opacity: 0.5;
+}

@@ -1,4 +1,8 @@
-import { cloneElement } from 'react';
+import {
+    cloneElement,
+    MouseEventHandler,
+    useCallback
+} from 'react';
 import { getChildrenByType } from '../../../modules/encrypt/utils/component';
 import {
     TabsNavItemProps as BaseItemProps,
@@ -11,6 +15,7 @@ import { cx } from '../../../utils/className';
 interface TabsNavItemProps extends BaseItemProps {
     __TYPE?: 'tabs-item';
     active?: boolean;
+    onClick?: (name: string) => void;
 }
 
 /**
@@ -20,7 +25,23 @@ interface TabsNavItemProps extends BaseItemProps {
  * @since 2022.05.28
  */
 const _TabsNavItem = (props: TabsNavItemProps) => {
-    const { text, active } = props;
+    const { text, active, onClick, id } = props;
+
+    /**
+     * Event Handler On Click
+     *
+     * @param {MouseEvent<HTMLDivElement, MouseEvent>} e - event handler trigger when user click div element
+     * @returns {void}
+     */
+    const eventOnClick: MouseEventHandler<HTMLDivElement> =
+        useCallback(
+            (e) => {
+                e.preventDefault();
+
+                onClick && onClick(id);
+            },
+            [id, onClick]
+        );
 
     return (
         <div
@@ -28,6 +49,10 @@ const _TabsNavItem = (props: TabsNavItemProps) => {
                 'nav-tabs-item': true,
                 'nav-tabs-item--active': Boolean(active)
             })}
+            role="button"
+            tabIndex={0}
+            onKeyDown={undefined}
+            onClick={eventOnClick}
         >
             {text}
         </div>
@@ -45,7 +70,20 @@ _TabsNavItem.defaultProps = {
  * @since 2022.05.28
  */
 const TabsNav: TabsNavComponentType = (props) => {
-    const { children, active } = props;
+    const { children, active, onChooseItem } = props;
+
+    /**
+     * Event On Click Navigation Item
+     *
+     * @description this method will be invoked when user try to click one of navigation item
+     * @returns {void}
+     */
+    const eventOnClickNavItem = useCallback(
+        (key: string) => {
+            if (key !== active) onChooseItem(key);
+        },
+        [active, onChooseItem]
+    );
 
     return (
         <div className="nav-tabs">
@@ -57,7 +95,8 @@ const TabsNav: TabsNavComponentType = (props) => {
                     return cloneElement(
                         child as any,
                         {
-                            active: id === active
+                            active: id === active,
+                            onClick: eventOnClickNavItem
                         },
                         null
                     );

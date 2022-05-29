@@ -12,29 +12,29 @@ import { cx } from '../../../utils/className';
 import './style.css';
 
 type BaseProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
+    InputHTMLAttributes<HTMLTextAreaElement>,
     'onChange' | 'name' | 'value'
 >;
 
 /**
- * Textfield Props Interface
+ * Textarea Props Interface
  *
  * @since 2022.05.28
  */
-export interface TextfieldProps extends BaseProps {
+export interface TextareaProps extends BaseProps {
     label: string;
     name: string;
     value: string;
-    timeout?: number;
     onChange(param: { name: string; value: string }): void;
+    timeout?: number;
 }
 
 /**
- * Textfield Component
+ * Textarea Component
  *
  * @since 2022.05.28
  */
-const Textfield = (props: TextfieldProps) => {
+const Textarea = (props: TextareaProps) => {
     const {
         label,
         className,
@@ -56,7 +56,7 @@ const Textfield = (props: TextfieldProps) => {
      * @returns {void}
      */
     const eventOnChange: ChangeEventHandler<
-        HTMLInputElement
+        HTMLTextAreaElement
     > = (e) => {
         const {
             target: { value: currentValue }
@@ -84,9 +84,9 @@ const Textfield = (props: TextfieldProps) => {
     }, [name, onChange, tempValue, timeout]);
 
     return (
-        <div className="a-textfield">
+        <div className="a-textarea">
             <label htmlFor={id}>{label}</label>
-            <input
+            <textarea
                 {...props}
                 id={id}
                 name={name}
@@ -100,4 +100,4 @@ const Textfield = (props: TextfieldProps) => {
     );
 };
 
-export default Textfield;
+export default Textarea;

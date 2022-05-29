@@ -4,10 +4,10 @@
     border-radius: 10px;
     box-shadow: var(--box-shadow-12dp);
     display: flex;
-    margin: 48px auto;
-    min-height: calc(100vh - 120px);
-    min-width: 1200px;
-    max-width: 1200px;
+    margin: 120px auto;
+    min-height: calc(100vh - 240px);
+    min-width: 1000px;
+    max-width: 1000px;
     overflow: hidden;
     position: relative;
     width: 90%;

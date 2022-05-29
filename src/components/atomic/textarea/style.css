@@ -1,0 +1,29 @@
+.a-textarea {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 16px 0;
+}
+
+.a-textarea label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--heading);
+}
+
+.a-textarea textarea {
+    outline: 0;
+    border: 1px solid var(--gray);
+    width: 100%;
+    min-height: 150px;
+    padding: 8px;
+    font-family: var(--font-face);
+    font-size: 14px;
+    color: var(--text);
+    border-radius: 5px;
+}
+
+.a-textarea textarea:focus {
+    box-shadow: var(--box-shadow-3dp);
+}
