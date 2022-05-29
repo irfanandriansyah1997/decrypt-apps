@@ -1,0 +1,28 @@
+.a-textfield {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 16px 0;
+}
+
+.a-textfield label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--heading);
+}
+
+.a-textfield input {
+    outline: 0;
+    border: 1px solid var(--gray);
+    width: 100%;
+    padding: 8px;
+    font-family: var(--font-face);
+    font-size: 14px;
+    color: var(--text);
+    border-radius: 5px;
+}
+
+.a-textfield input:focus {
+    box-shadow: var(--box-shadow-3dp);
+}
