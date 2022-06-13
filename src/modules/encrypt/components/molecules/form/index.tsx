@@ -70,9 +70,9 @@ const EncryptForm = () => {
             </TabsNav>
             <div className="m-form__content">
                 <Textarea
-                    name="text"
-                    id="text"
-                    type="text"
+                    name="content"
+                    id="content"
+                    type="content"
                     label="Content"
                     placeholder="Please fill content will be to encrypt / decrypt"
                     value={content}

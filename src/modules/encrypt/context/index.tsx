@@ -131,6 +131,7 @@ const EncryptProvider = (
     );
 
     const doExecute = useCallback(() => {
+        console.debug({ content, uuid });
         switch (type) {
             case EncryptModulesTypes.ENCRYPT:
                 setResultValue(encrypt(content, uuid));
